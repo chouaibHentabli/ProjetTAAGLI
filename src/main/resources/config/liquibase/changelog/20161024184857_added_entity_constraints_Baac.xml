@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Baac.
+    -->
+    <changeSet id="20161024184857-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="baacs_id"
+                                 baseTableName="baac_valeur"
+                                 constraintName="fk_baac_valeur_baacs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="baac"/>
+        <addForeignKeyConstraint baseColumnNames="valeurs_id"
+                                 baseTableName="baac_valeur"
+                                 constraintName="fk_baac_valeur_valeurs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="valeur"/>
+
+        <addForeignKeyConstraint baseColumnNames="accident_id"
+                                 baseTableName="baac"
+                                 constraintName="fk_baac_accident_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="accident"/>
+
+        <addForeignKeyConstraint baseColumnNames="rubrique_id"
+                                 baseTableName="baac"
+                                 constraintName="fk_baac_rubrique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rubrique"/>
+
+        <addForeignKeyConstraint baseColumnNames="vehicule_id"
+                                 baseTableName="baac"
+                                 constraintName="fk_baac_vehicule_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="baac"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="baac"
+                                 constraintName="fk_baac_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,109 @@
+body{
+	background-color: #EAEAEA;
+}
+.spacer{
+	margin-top: 25px;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > td {
+	background-color: #428bca;
+	color: #ffffff;
+}
+.clickable{
+	cursor: pointer;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #FFF;
+    background-color: #1F9EFB;
+}
+
+
+span{
+	font-size: 10;
+	
+}
+.date-group{
+	color: #1F9EFB;
+	font-size: 29;
+	padding-left: 3px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #ffffff;
+	border-radius: 20px;
+	border: 2px solid #1F9EFB;
+	max-width: 165px;
+
+}
+#infoContainer{
+	margin-right: 25px;
+}
+#detailContainer{
+	background-color: #ffffff;
+	min-height: 400px;
+	padding-left: 20px;
+	border-radius: 10px;
+}
+.icon{
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+.alert{
+	border-radius: 10px;
+}
+header{
+	margin-bottom: 20px;
+	background-color: #1F9EFB;
+}
+#my-evcal > img{
+	margin-top: 20px;
+	margin-left: 20px;
+	height: 35px;
+	width: 35px;
+}
+#my-evcal b{
+	color: white;
+	font-size: 29;
+	margin-left: 30px;
+	
+}
+#my-evcal img, #my-evcal b{
+	display:inline-block;
+   	vertical-align: bottom;
+}
+#option-btn{
+	margin-top: 20px;
+}
+.menu{
+	margin-left: 4%;
+}
+.menu ul li a{
+	color: #D3D3D3;
+	font-size: 17;
+	margin-left: 65%;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    color: white;
+    background-color: #1F9EFB;
+}
+
+.time-panel{
+	font-size: 19;
+	color: #989898;
+}
+.at-time{
+	margin-left: 20px;
+	margin-right: 5px;
+	font-size: 10;
+}
+#close-btn{
+	position: absolute;
+	top: 90%;
+	left: 90%;
+}
+
+
+
+/**************************************************************************/

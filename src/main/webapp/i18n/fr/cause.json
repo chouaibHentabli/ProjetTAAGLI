@@ -1,0 +1,23 @@
+{
+    "rsdataApp": {
+        "cause" : {
+            "home": {
+                "title": "Causes",
+                "createLabel": "Créer un nouveau Cause",
+                "createOrEditLabel": "Créer ou éditer un Cause",
+                "search": "Recherche pour Cause"
+            },
+            "created": "Un nouveau Cause a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Cause avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Cause avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Cause {{ id }} ?"
+            },
+            "detail": {
+                "title": "Cause"
+            },
+            "causeIntitule": "Cause Intitule",
+            "accident": "Accident"
+        }
+    }
+}

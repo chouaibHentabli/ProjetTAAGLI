@@ -1,0 +1,11 @@
+{
+    "rsdataApp": {
+        "Type" : {
+            "null": "",
+            "NUMBER": "NUMBER",
+            "STRING": "STRING",
+            "DATE": "DATE",
+            "SELECT": "SELECT"
+        }
+    }
+}

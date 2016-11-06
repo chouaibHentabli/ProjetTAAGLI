@@ -1,0 +1,158 @@
+(function() {
+    'use strict';
+
+    angular
+        .module('rsdataApp')
+        .controller('LoginController', LoginController);
+
+    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
+
+    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
+        var vm = this;
+
+        vm.authenticationError = false;
+        vm.cancel = cancel;
+        vm.credentials = {};
+        vm.login = login;
+        vm.password = null;
+        vm.register = register;
+        vm.rememberMe = true;
+        vm.requestResetPassword = requestResetPassword;
+        vm.username = null;
+
+        $timeout(function (){angular.element('#username').focus();});
+
+        function cancel () {
+            vm.credentials = {
+                username: null,
+                password: null,
+                rememberMe: true
+            };
+            vm.authenticationError = false;
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        function login (event) {
+            event.preventDefault();
+            Auth.login({
+                username: vm.username,
+                password: vm.password,
+                rememberMe: vm.rememberMe
+            }).then(function () {
+                vm.authenticationError = false;
+                $uibModalInstance.close();
+                if ($state.current.name === 'register' || $state.current.name === 'activate' ||
+                    $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
+                    $state.go('home');
+                }
+
+                $rootScope.$broadcast('authenticationSuccess');
+
+                // previousState was set in the authExpiredInterceptor before being redirected to login modal.
+                // since login is succesful, go to stored previousState and clear previousState
+                if (Auth.getPreviousState()) {
+                    var previousState = Auth.getPreviousState();
+                    Auth.resetPreviousState();
+                    $state.go(previousState.name, previousState.params);
+                }
+            }).catch(function () {
+                vm.authenticationError = true;
+            });
+        }
+
+        function register () {
+            $uibModalInstance.dismiss('cancel');
+            $state.go('register');
+        }
+
+        function requestResetPassword () {
+            $uibModalInstance.dismiss('cancel');
+            $state.go('requestReset');
+        }
+    }
+})();
+---------------------------------------------------------------------------
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel='stylesheet prefetch'
+	href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>
+<link rel='stylesheet prefetch'
+	href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+<link rel="stylesheet" href="css/style2.css">
+
+</head>
+
+<body>
+<div id="signup">
+	<div class="signup-screen">
+		<div class="space-bot text-center">
+			<h1>Login</h1>
+			<div class="divider"></div>
+		</div>
+		 <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" ng-show="vm.authenticationError" data-translate="login.messages.error.authentication">
+                <strong>Failed to sign in!</strong> Please check your credentials and try again.
+            </div>
+        </div>
+		<form class="form-register" role="form" ng-submit="vm.login($event)" name="register" novalidate>
+
+			<div class="input-field col s6">
+				<input type="text" name="email" id="username" placeholder="{{'global.form.username.placeholder' | translate}}" ng-model="vm.username"
+					class="validate" required> <label for="email">Email</label>
+			</div>
+
+			<div class="input-field col s6">
+				<input id="password" type="password" name="password"
+					ng-model="vm.password" ng-minlength='4' class="validate" required>
+				<label for="password">Password</label>
+			</div>
+			<p class="alert alert-danger"
+				ng-show="form-register.password.$error.minlength || form.password.$invalid">Your
+				password must be at least 6 characters.</p>
+				<div class="form-group">
+                    <label for="rememberMe">
+                        <input type="checkbox" id="rememberMe" ng-model="vm.rememberMe" checked>
+                        <span data-translate="login.form.rememberme">Remember me</span>
+                    </label>
+                </div>
+			<div class="space-top text-center">
+				<button ng-disabled="form-register.$invalid"
+					class="waves-effect waves-light btn done" data-translate="login.form.button">
+					<i class="material-icons left">done</i> Login
+				</button>
+				<button type="button" class="waves-effect waves-light btn cancel"
+					ng-click="navigateTo('/regitre')">
+					<i class="material-icons left">edit</i>Registre
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+<script src='http://code.jquery.com/jquery-2.1.4.min.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script>
+<script
+	src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js'></script>
+
+<script src="js/index.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-ui-notification.js"></script>
+
+
+</body>
+</html>
+
+

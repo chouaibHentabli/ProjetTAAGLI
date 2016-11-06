@@ -1,0 +1,23 @@
+{
+    "rsdataApp": {
+        "cause" : {
+            "home": {
+                "title": "Causes",
+                "createLabel": "Create a new Cause",
+                "createOrEditLabel": "Create or edit a Cause",
+                "search": "Search for Cause"
+            },
+            "created": "A new Cause is created with identifier {{ param }}",
+            "updated": "A Cause is updated with identifier {{ param }}",
+            "deleted": "A Cause is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cause {{ id }}?"
+            },
+            "detail": {
+                "title": "Cause"
+            },
+            "causeIntitule": "Cause Intitule",
+            "accident": "Accident"
+        }
+    }
+}

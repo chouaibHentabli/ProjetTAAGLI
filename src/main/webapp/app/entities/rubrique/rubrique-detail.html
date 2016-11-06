@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="rsdataApp.rubrique.detail.title">Rubrique</span> {{vm.rubrique.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="rsdataApp.rubrique.nom">Nom</span></dt>
+        <dd>
+            <span>{{vm.rubrique.nom}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.rubrique.rubUnique">Rub Unique</span></dt>
+        <dd>
+            <span>{{vm.rubrique.rubUnique}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.rubrique.active">Active</span></dt>
+        <dd>
+            <span>{{vm.rubrique.active}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.rubrique.description">Description</span></dt>
+        <dd>
+            <span>{{vm.rubrique.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="rubrique-detail.edit({id:vm.rubrique.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

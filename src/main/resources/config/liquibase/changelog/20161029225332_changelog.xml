@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+   <changeSet author="chouaib (generated)" id="1477774416642-1">
+      <createTable tableName="accident">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="accidentPK"/>
+         </column>
+         <column name="date_acc" type="datetime"/>
+         <column name="date_creation" type="datetime"/>
+         <column name="heure" type="datetime"/>
+         <column name="latitude" type="DOUBLE precision"/>
+         <column name="longitude" type="DOUBLE precision"/>
+         <column name="nbr_blesse" type="INT"/>
+         <column name="nbr_hospitalise" type="INT"/>
+         <column name="nbr_indemne" type="INT"/>
+         <column name="nbr_morts" type="INT"/>
+         <column name="status" type="BOOLEAN"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-2">
+      <createTable tableName="accident_cause">
+         <column name="accidents_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="causes_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-3">
+      <createTable tableName="baac">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="baacPK"/>
+         </column>
+         <column name="date_creation" type="datetime"/>
+         <column name="accident_id" type="BIGINT"/>
+         <column name="rubrique_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+         <column name="vehicule_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-4">
+      <createTable tableName="baac_valeur">
+         <column name="baacs_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="valeurs_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-5">
+      <createTable tableName="cause">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="causePK"/>
+         </column>
+         <column name="cause_intitule" type="VARCHAR(255)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-6">
+      <createTable tableName="jhi_authority">
+         <column name="name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-7">
+      <createTable tableName="jhi_persistent_audit_event">
+         <column autoIncrement="true" name="event_id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+         </column>
+         <column name="event_date" type="datetime"/>
+         <column name="event_type" type="VARCHAR(255)"/>
+         <column name="principal" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-8">
+      <createTable tableName="jhi_persistent_audit_evt_data">
+         <column name="event_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="value" type="VARCHAR(255)"/>
+         <column name="name" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-9">
+      <createTable tableName="jhi_persistent_token">
+         <column name="series" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="ip_address" type="VARCHAR(39)"/>
+         <column name="token_date" type="date"/>
+         <column name="token_value" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="user_agent" type="VARCHAR(255)"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-10">
+      <createTable tableName="jhi_user">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+         </column>
+         <column name="created_by" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="created_date" type="datetime">
+            <constraints nullable="false"/>
+         </column>
+         <column name="last_modified_by" type="VARCHAR(50)"/>
+         <column name="last_modified_date" type="datetime"/>
+         <column name="activated" type="BOOLEAN">
+            <constraints nullable="false"/>
+         </column>
+         <column name="activation_key" type="VARCHAR(20)"/>
+         <column name="email" type="VARCHAR(100)"/>
+         <column name="first_name" type="VARCHAR(50)"/>
+         <column name="lang_key" type="VARCHAR(5)"/>
+         <column name="last_name" type="VARCHAR(50)"/>
+         <column name="login" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="password_hash" type="VARCHAR(60)"/>
+         <column name="reset_date" type="datetime"/>
+         <column name="reset_key" type="VARCHAR(20)"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-11">
+      <createTable tableName="jhi_user_authority">
+         <column name="user_id" type="BIGINT">
+            <constraints nullable="false"/>
+         </column>
+         <column name="authority_name" type="VARCHAR(50)">
+            <constraints nullable="false"/>
+         </column>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-12">
+      <createTable tableName="modification">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="modificationPK"/>
+         </column>
+         <column name="date_mod" type="datetime"/>
+         <column name="baac_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-13">
+      <createTable tableName="rubrique">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="rubriquePK"/>
+         </column>
+         <column name="active" type="BOOLEAN"/>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="nom" type="VARCHAR(255)"/>
+         <column name="rub_unique" type="BOOLEAN"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-14">
+      <createTable tableName="valeur">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="valeurPK"/>
+         </column>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="title" type="VARCHAR(255)"/>
+         <column name="variable_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-15">
+      <createTable tableName="variable">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="variablePK"/>
+         </column>
+         <column name="description" type="VARCHAR(255)"/>
+         <column name="nom" type="VARCHAR(255)"/>
+         <column name="obligatoire" type="BOOLEAN"/>
+         <column name="var_regex" type="VARCHAR(255)"/>
+         <column name="var_type" type="VARCHAR(255)"/>
+         <column name="rubrique_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-16">
+      <addPrimaryKey columnNames="accidents_id, causes_id" tableName="accident_cause"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-17">
+      <addPrimaryKey columnNames="baacs_id, valeurs_id" tableName="baac_valeur"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-18">
+      <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-19">
+      <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-20">
+      <addPrimaryKey columnNames="name"
+                     constraintName="jhi_authorityPK"
+                     tableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-21">
+      <addPrimaryKey columnNames="series"
+                     constraintName="jhi_persistent_tokenPK"
+                     tableName="jhi_persistent_token"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-22">
+      <addUniqueConstraint columnNames="email"
+                           constraintName="UC_JHI_USEREMAIL_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-23">
+      <addUniqueConstraint columnNames="login"
+                           constraintName="UC_JHI_USERLOGIN_COL"
+                           tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-24">
+      <addForeignKeyConstraint baseColumnNames="vehicule_id"
+                               baseTableName="baac"
+                               constraintName="FK_1k60ara6dks9pxc7cg166aht3"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="baac"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-25">
+      <addForeignKeyConstraint baseColumnNames="accident_id"
+                               baseTableName="baac"
+                               constraintName="FK_231hg5ag9n095ahf5hxqo2gtc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="accident"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-26">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="baac"
+                               constraintName="FK_2rukwdjbu536ixmmyhou8t0lw"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-27">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="modification"
+                               constraintName="FK_3414kg3hu0exbwjx0q4x4jb6e"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-28">
+      <addForeignKeyConstraint baseColumnNames="rubrique_id"
+                               baseTableName="baac"
+                               constraintName="FK_6jke1r8rn0dbc3p129h1ktojv"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="rubrique"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-29">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="jhi_persistent_token"
+                               constraintName="FK_c2yetr6vr7nrqhjvi1rl24b3l"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-30">
+      <addForeignKeyConstraint baseColumnNames="variable_id"
+                               baseTableName="valeur"
+                               constraintName="FK_e8fdlv39lmuirbvp63apnxaer"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="variable"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-31">
+      <addForeignKeyConstraint baseColumnNames="event_id"
+                               baseTableName="jhi_persistent_audit_evt_data"
+                               constraintName="FK_evb970jo5bi8aon8s65c0lyyn"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="event_id"
+                               referencedTableName="jhi_persistent_audit_event"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-32">
+      <addForeignKeyConstraint baseColumnNames="authority_name"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK_ik5r332jlvpolfr7e5n7oi42l"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="name"
+                               referencedTableName="jhi_authority"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-33">
+      <addForeignKeyConstraint baseColumnNames="baac_id"
+                               baseTableName="modification"
+                               constraintName="FK_ipwv821nyuu4o0d6um7ww2bb9"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="baac"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-34">
+      <addForeignKeyConstraint baseColumnNames="causes_id"
+                               baseTableName="accident_cause"
+                               constraintName="FK_iqlx51s14etuu3tk8demksj34"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="cause"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-35">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="accident"
+                               constraintName="FK_jaxqe3dmvbn6xx2svtgouhb9l"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-36">
+      <addForeignKeyConstraint baseColumnNames="accidents_id"
+                               baseTableName="accident_cause"
+                               constraintName="FK_nw2f942dwxso3yg1tkqgnds3j"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="accident"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-37">
+      <addForeignKeyConstraint baseColumnNames="rubrique_id"
+                               baseTableName="variable"
+                               constraintName="FK_oghag3f9j1k5fdu4d7shltl6u"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="rubrique"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-38">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="jhi_user_authority"
+                               constraintName="FK_pg0oaw6mr9pt3ibeihdc1jwof"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-39">
+      <addForeignKeyConstraint baseColumnNames="baacs_id"
+                               baseTableName="baac_valeur"
+                               constraintName="FK_qs2mbnnunla8ckexjm2x16w6h"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="baac"/>
+   </changeSet>
+   <changeSet author="chouaib (generated)" id="1477774416642-40">
+      <addForeignKeyConstraint baseColumnNames="valeurs_id"
+                               baseTableName="baac_valeur"
+                               constraintName="FK_sgylsfqhp7elim0k63d1c6itv"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="valeur"/>
+   </changeSet>
+</databaseChangeLog>

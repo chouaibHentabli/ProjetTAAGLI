@@ -1,0 +1,41 @@
+
+<div>
+    <h2><span data-translate="rsdataApp.baac.detail.title">Baac</span> {{vm.baac.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="rsdataApp.baac.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{vm.baac.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.baac.valeur">Valeur</span></dt>
+        <dd>
+            <span ng-repeat="valeur in vm.baac.valeurs">
+                <a ui-sref="valeur-detail({id: valeur.id})">{{valeur.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="rsdataApp.baac.accident">Accident</span></dt>
+        <dd>
+            <a ui-sref="accident-detail({id:vm.baac.accidentId})">{{vm.baac.accidentId}}</a>
+        </dd>
+        <dt><span data-translate="rsdataApp.baac.vehicule">Vehicule</span></dt>
+        <dd>
+            <a ui-sref="baac-detail({id:vm.baac.vehiculeId})">{{vm.baac.vehiculeId}}</a>
+        </dd>
+        <dt><span data-translate="rsdataApp.baac.rubrique">Rubrique</span></dt>
+        <dd>
+            <a ui-sref="rubrique-detail({id:vm.baac.rubriqueId})">{{vm.baac.rubriqueId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="baac-detail.edit({id:vm.baac.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

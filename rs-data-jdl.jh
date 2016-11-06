@@ -1,0 +1,94 @@
+/*entity Utilisateur {
+    username String,
+    password String,
+    nom  String,
+    prenom String,
+    birthDate ZonedDateTime,
+    hireDate ZonedDateTime,
+    phoneNumber String,
+    mail String
+}*/
+entity Accident {
+   dateAcc ZonedDateTime,
+   dateCreation ZonedDateTime,
+   heure ZonedDateTime,
+   latitude Double,
+   longitude Double,
+   status Boolean,
+   nbrBlesse Integer,
+   nbrHospitalise Integer,
+   nbrMorts Integer,
+   nbrIndemne Integer
+}
+
+entity Baac {
+    dateCreation ZonedDateTime
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Rubrique {
+    nom String,
+    rubUnique Boolean,
+    active Boolean,
+    description String
+}
+
+entity Variable {
+    nom String,
+    description String,
+    obligatoire Boolean,
+    varType Type,
+    varRegex String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Valeur {
+	title String,
+	description String
+}
+
+
+entity Modification {
+    dateMod ZonedDateTime
+}
+
+entity Cause {
+    causeIntitule String
+}
+
+
+enum Type {
+    NUMBER, STRING, DATE, SELECT
+}
+
+relationship ManyToMany {
+    Baac{valeur} to Valeur{baac},
+    Accident{cause} to Cause{accident}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    Rubrique{variable} to Variable{rubrique},
+    Variable{valeur} to Valeur{variable},
+
+    Accident{baac} to Baac{accident},
+    Baac{usager} to Baac{vehicule},
+    Rubrique{baac} to Baac{rubrique},
+    Baac{modification} to Modification{baac}        
+}
+
+
+
+// Set pagination options
+paginate all with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

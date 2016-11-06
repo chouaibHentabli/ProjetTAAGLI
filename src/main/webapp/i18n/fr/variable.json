@@ -1,0 +1,28 @@
+{
+    "rsdataApp": {
+        "variable" : {
+            "home": {
+                "title": "Variables",
+                "createLabel": "Créer un nouveau Variable",
+                "createOrEditLabel": "Créer ou éditer un Variable",
+                "search": "Recherche pour Variable"
+            },
+            "created": "Un nouveau Variable a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Variable avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Variable avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Variable {{ id }} ?"
+            },
+            "detail": {
+                "title": "Variable"
+            },
+            "nom": "Nom",
+            "description": "Description",
+            "obligatoire": "Obligatoire",
+            "varType": "Var Type",
+            "varRegex": "Var Regex",
+            "valeur": "Valeur",
+            "rubrique": "Rubrique"
+        }
+    }
+}

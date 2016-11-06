@@ -1,0 +1,33 @@
+{
+    "rsdataApp": {
+        "accident" : {
+            "home": {
+                "title": "Accidents",
+                "createLabel": "Create a new Accident",
+                "createOrEditLabel": "Create or edit a Accident",
+                "search": "Search for Accident"
+            },
+            "created": "A new Accident is created with identifier {{ param }}",
+            "updated": "A Accident is updated with identifier {{ param }}",
+            "deleted": "A Accident is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Accident {{ id }}?"
+            },
+            "detail": {
+                "title": "Accident"
+            },
+            "dateAcc": "Date Acc",
+            "dateCreation": "Date Creation",
+            "heure": "Heure",
+            "latitude": "Latitude",
+            "longitude": "Longitude",
+            "status": "Status",
+            "nbrBlesse": "Nbr Blesse",
+            "nbrHospitalise": "Nbr Hospitalise",
+            "nbrMorts": "Nbr Morts",
+            "nbrIndemne": "Nbr Indemne",
+            "baac": "Baac",
+            "cause": "Cause"
+        }
+    }
+}

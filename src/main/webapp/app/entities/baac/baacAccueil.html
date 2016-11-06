@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<tiles:insertDefinition name="defaultTemplate3">
+	<tiles:putAttribute name="css">
+		<!-- Vertical Tabs CSS -->
+		<link type="text/css" rel="stylesheet"
+			href="<c:url value="/resources/css/verticalTab.css"/>" />
+		<link rel="stylesheet" type="text/css"
+			href="<c:url value="/resources/css/form-component.css"/>" />
+	</tiles:putAttribute>
+	<tiles:putAttribute name="rightSide">
+		<tiles:insertDefinition name="ficheAccident">
+			<tiles:putAttribute name="dialogs">
+				<div></div>
+			</tiles:putAttribute>
+			<tiles:putAttribute name="body-tab">
+				<h2><spring:message code="label.accident.info" /></h2>
+				<table class="table table-striped">
+					<tr>
+						<td><strong><spring:message code="form.accident.ID" /></strong></td>
+						<td><mark> ${accident.ID}</mark></td>
+					</tr>
+					<tr>
+						<td><strong><spring:message code="form.accident.MSG" /></strong></td>
+						<td><mark> ${accident.MSG}</mark></td>
+					</tr>
+					<tr>
+						<td><strong><spring:message code="form.accident.DATE" /></strong></td>
+						<td><mark> ${accident.DATE}</mark></td>
+					</tr>
+					<tr>
+						<td><strong><spring:message code="form.accident.HEURE" /></strong></td>
+						<td><mark> ${accident.HEURE}</mark></td>
+					</tr>
+					<tr>	
+						<td><strong><spring:message code="form.accident.GROUPEMENT" /></strong></td>
+						<td><mark> ${accident.groupement.NOM}</mark></td>
+					</tr>
+					<tr>	
+						<td><strong><spring:message code="form.accident.ADRESS" /></strong></td>
+						<td><mark> ${accident.ADR}</mark></td>
+					</tr>
+					<tr>	
+						<td><strong><spring:message code="form.accident.STATUS" /></strong></td>
+						<c:choose>
+							<c:when test="${accident.STATUS}">
+								<td><span class="label label-success"> <spring:message code="span.stat.valide" /></span></td>
+							</c:when>
+							<c:otherwise>
+								<td><span class="label label-warning"> <spring:message code="span.stat.enCours" /></span></td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+				</table>							
+			</tiles:putAttribute>
+		</tiles:insertDefinition>
+	</tiles:putAttribute>
+	<tiles:putAttribute name="javaScript">
+		<script>
+			$(document).ready(
+					function() {
+						$("div.bhoechie-tab-menu>div.list-group>a").siblings(
+								'a.active').removeClass("active");
+						$("#accueil").addClass("active");
+					})
+		</script>
+	</tiles:putAttribute>
+</tiles:insertDefinition>

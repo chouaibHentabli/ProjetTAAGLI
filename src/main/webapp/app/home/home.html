@@ -1,0 +1,178 @@
+
+
+<div ng-cloak>
+	<div class="row" ng-if="!vm.isAuthenticated()" align="center">
+		<!-- <span class="hipster img-responsive img-rounded"></span> -->
+
+		<p>
+			<br /> <img style="width: 630px; height: auto;" src="../content/images/traffic_accidents.jpg" />
+		</p>
+	</div>
+	<div class="row" align="center" ng-if="!vm.isAuthenticated()">
+			<button class="btn btn-primary" ui-sref="register"
+				ng-click="vm.collapseNavbar()">Registre</button>
+			<button class="btn btn-primary" ng-click="vm.login()" id="login">SignIn</button>
+		</div>
+	<div class="row">
+		
+		<div class="row" ng-if="vm.isAuthenticated()"
+			ng-controller="accidentListController">
+			<div class="col-md-4 my-scrollBar " ng-style="maxScreenHeight"
+				style="overflow-y: scroll; overflow-x: hidden;">
+				<!--          ng-controller="AccidentController" -->
+				<div id="infoEvent" class="row"
+					style="margin-left: 0; margin-right: 0"
+					ng-repeat="item in accidents  | orderBy:'dateAcc' | groupByDay: 'dateAcc'">
+					<div class="date-group" ng-show="item.group_by_day_CHANGED">
+						{{item.dateAcc | date:'dd-MM-yyyy'}}</div>
+					<div class="row  alert alert-info clickable" role="alert"
+						ng-click="showDetail(item)"
+						style="padding: 0; padding-top: 5px; margin-bottom: 5px; margin-left: 10px; margin-right: 0">
+						<div class="col-md-10">
+							<p>
+								<b>{{ item.id}}</b>
+							</p>
+							<p>
+								<span> Lat: {{ item.latitude}} Long: {{item.longitude}}</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8" ng-if="selectedItem">
+				<div>
+					<!-- Nav tabs ng-class="{'active': tab = 'home' }"-->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" ng-class="{'active': tab == 'home' }"><a
+							href="#home" aria-controls="home" role="tab" data-toggle="tab"
+							ng-click="tab = 'home'">Home</a></li>
+						<li role="presentation" ng-class="{'active': tab == 'profile' }"><a
+							href="#profile" aria-controls="profile" role="tab"
+							data-toggle="tab" ng-click="tab = 'profile'">Characteristics</a></li>
+						<li role="presentation" ng-class="{'active': tab == 'messages' }"><a
+							href="#messages" aria-controls="messages" role="tab"
+							data-toggle="tab" ng-click="tab = 'messages'">Location</a></li>
+						<li role="presentation" ng-class="{'active': tab == 'mysetting' }"><a
+							href="#mysettings" aria-controls="settings" role="tab"
+							data-toggle="tab" ng-click="tab = 'mysetting'">Users</a></li>
+						<li role="presentation" ng-class="{'active': tab == 'mycharts' }"><a
+							href="#mycharts" aria-controls="charts" role="tab"
+							data-toggle="tab" ng-click="tab = 'mycharts'">Charts</a></li>
+
+
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content my-tab-content">
+						<div class="tab-pane" ng-class="{'active': tab == 'home' }"
+							ng-if="tab == 'home'">
+
+							<br> <br>
+							<p>
+								&nbsp &nbsp <b class="ng-binding"> General of Informations
+									of the Accident:</b>
+							</p>
+							<br>
+							<table class="jh-table table table-striped">
+								<tr>
+									<td><b class="ng-binding"> Id Accident:</b></td>
+									<td>{{selectedItem.id}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Date of the Accident:</b></td>
+									<td>{{selectedItem.dateAcc | date:'dd-MM-yyyy'}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Hour of the Accident:</b></td>
+									<td>{{selectedItem.dateAcc | date:'HH:mm'}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Date of the Creation:</b></td>
+									<td>{{selectedItem.dateAcc | date:'HH:mm'}}</td>
+								</tr>
+
+								<tr>
+									<td><b class="ng-binding"> State:</b></td>
+									<td>{{selectedItem.status}}</td>
+								</tr>
+
+							</table>
+						</div>
+						<div class="tab-pane" ng-class="{'active': tab == 'profile' }"
+							ng-if="tab == 'profile'">{{selectedItem.nbrHospitalise}}</div>
+						<div class="tab-pane" ng-class="{'active': tab == 'messages' }"
+							ng-if="tab == 'messages'">
+							<br> <br>
+							<p>
+								&nbsp &nbsp <b class="ng-binding"> Location of the Accident:</b>
+							</p>
+							<br>
+							<table class="jh-table table table-striped">
+								<tr>
+									<td><b class="ng-binding"> Longitude:</b></td>
+									<td>{{selectedItem.longitude}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Latitude:</b></td>
+									<td>{{selectedItem.latitude}}</td>
+								</tr>
+
+
+							</table>
+						</div>
+						<div class="tab-pane" ng-class="{'active': tab == 'mysetting' }"
+							ng-if="tab == 'mysetting'">
+
+							<br> <br>
+							<p>
+								&nbsp &nbsp <b class="ng-binding"> Passengers Informations:</b>
+							</p>
+							<br>
+							<table class="jh-table table table-striped">
+								<tr>
+									<td><b class="ng-binding"> Number of Injured people:</b></td>
+									<td>{{selectedItem.nbrBlesse}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Number of hospitilized
+											people:</b></td>
+									<td>{{selectedItem.nbrHospitalise}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Number of unscathed:</b></td>
+									<td>{{selectedItem.nbrIndemne}}</td>
+								</tr>
+								<tr>
+									<td><b class="ng-binding"> Number of dead people:</b></td>
+									<td>{{selectedItem.nbrMorts}}</td>
+								</tr>
+
+							</table>
+						</div>
+						<div class="tab-pane" ng-class="{'active': tab == 'mycharts' }"
+							ng-if="tab == 'mycharts'">
+							<div class="row" style="padding-top: 20px;">
+								<div class="col-md-6">
+		                            <canvas id="doughnut" class="chart chart-doughnut"
+									  chart-data="data" chart-labels="labels" 
+									  chart-options="options" chart-legend="true">
+									</canvas>
+								</div> 
+								<div class="col-md-6">
+		                            <canvas id="doughnut" class="chart chart-doughnut"
+									  chart-data="data" chart-labels="labels" 
+									  chart-options="options" chart-legend="true">
+									</canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="close-btn">
+					<button class="btn btn-link" ng-click="closeDetail()">Close</button>
+				</div>
+			</div>
+		</div>
+		<!-- end infoEvents -->
+	</div>
+</div>
+</div>

@@ -1,0 +1,65 @@
+
+<div>
+    <h2><span data-translate="rsdataApp.accident.detail.title">Accident</span> {{vm.accident.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="rsdataApp.accident.dateAcc">Date Acc</span></dt>
+        <dd>
+            <span>{{vm.accident.dateAcc | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.dateCreation">Date Creation</span></dt>
+        <dd>
+            <span>{{vm.accident.dateCreation | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.heure">Heure</span></dt>
+        <dd>
+            <span>{{vm.accident.heure | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{vm.accident.latitude}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{vm.accident.longitude}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.status">Status</span></dt>
+        <dd>
+            <span>{{vm.accident.status}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.nbrBlesse">Nbr Blesse</span></dt>
+        <dd>
+            <span>{{vm.accident.nbrBlesse}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.nbrHospitalise">Nbr Hospitalise</span></dt>
+        <dd>
+            <span>{{vm.accident.nbrHospitalise}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.nbrMorts">Nbr Morts</span></dt>
+        <dd>
+            <span>{{vm.accident.nbrMorts}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.nbrIndemne">Nbr Indemne</span></dt>
+        <dd>
+            <span>{{vm.accident.nbrIndemne}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.accident.cause">Cause</span></dt>
+        <dd>
+            <span ng-repeat="cause in vm.accident.causes">
+                <a ui-sref="cause-detail({id: cause.id})">{{cause.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="accident-detail.edit({id:vm.accident.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

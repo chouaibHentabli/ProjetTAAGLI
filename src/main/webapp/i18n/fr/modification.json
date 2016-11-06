@@ -1,0 +1,23 @@
+{
+    "rsdataApp": {
+        "modification" : {
+            "home": {
+                "title": "Modifications",
+                "createLabel": "Créer un nouveau Modification",
+                "createOrEditLabel": "Créer ou éditer un Modification",
+                "search": "Recherche pour Modification"
+            },
+            "created": "Un nouveau Modification a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Modification avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Modification avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Modification {{ id }} ?"
+            },
+            "detail": {
+                "title": "Modification"
+            },
+            "dateMod": "Date Mod",
+            "baac": "Baac"
+        }
+    }
+}

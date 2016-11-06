@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="rsdataApp.variable.detail.title">Variable</span> {{vm.variable.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="rsdataApp.variable.nom">Nom</span></dt>
+        <dd>
+            <span>{{vm.variable.nom}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.variable.description">Description</span></dt>
+        <dd>
+            <span>{{vm.variable.description}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.variable.obligatoire">Obligatoire</span></dt>
+        <dd>
+            <span>{{vm.variable.obligatoire}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.variable.varType">Var Type</span></dt>
+        <dd>
+            <span data-translate="{{'rsdataApp.Type.' + vm.variable.varType}}">{{vm.variable.varType}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.variable.varRegex">Var Regex</span></dt>
+        <dd>
+            <span>{{vm.variable.varRegex}}</span>
+        </dd>
+        <dt><span data-translate="rsdataApp.variable.rubrique">Rubrique</span></dt>
+        <dd>
+            <a ui-sref="rubrique-detail({id:vm.variable.rubriqueId})">{{vm.variable.rubriqueId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="variable-detail.edit({id:vm.variable.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

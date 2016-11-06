@@ -1,0 +1,27 @@
+{
+    "rsdataApp": {
+        "rubrique" : {
+            "home": {
+                "title": "Rubriques",
+                "createLabel": "Create a new Rubrique",
+                "createOrEditLabel": "Create or edit a Rubrique",
+                "search": "Search for Rubrique"
+            },
+            "created": "A new Rubrique is created with identifier {{ param }}",
+            "updated": "A Rubrique is updated with identifier {{ param }}",
+            "deleted": "A Rubrique is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rubrique {{ id }}?"
+            },
+            "detail": {
+                "title": "Rubrique"
+            },
+            "nom": "Nom",
+            "rubUnique": "Rub Unique",
+            "active": "Active",
+            "description": "Description",
+            "variable": "Variable",
+            "baac": "Baac"
+        }
+    }
+}

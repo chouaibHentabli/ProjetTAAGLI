@@ -1,0 +1,27 @@
+{
+    "rsdataApp": {
+        "rubrique" : {
+            "home": {
+                "title": "Rubriques",
+                "createLabel": "Créer un nouveau Rubrique",
+                "createOrEditLabel": "Créer ou éditer un Rubrique",
+                "search": "Recherche pour Rubrique"
+            },
+            "created": "Un nouveau Rubrique a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Rubrique avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Rubrique avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Rubrique {{ id }} ?"
+            },
+            "detail": {
+                "title": "Rubrique"
+            },
+            "nom": "Nom",
+            "rubUnique": "Rub Unique",
+            "active": "Active",
+            "description": "Description",
+            "variable": "Variable",
+            "baac": "Baac"
+        }
+    }
+}

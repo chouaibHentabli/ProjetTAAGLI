@@ -1,0 +1,28 @@
+{
+    "rsdataApp": {
+        "baac" : {
+            "home": {
+                "title": "Baacs",
+                "createLabel": "Créer un nouveau Baac",
+                "createOrEditLabel": "Créer ou éditer un Baac",
+                "search": "Recherche pour Baac"
+            },
+            "created": "Un nouveau Baac a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Baac avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Baac avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Baac {{ id }} ?"
+            },
+            "detail": {
+                "title": "Baac"
+            },
+            "dateCreation": "Date Creation",
+            "usager": "Usager",
+            "modification": "Modification",
+            "valeur": "Valeur",
+            "accident": "Accident",
+            "vehicule": "Vehicule",
+            "rubrique": "Rubrique"
+        }
+    }
+}
