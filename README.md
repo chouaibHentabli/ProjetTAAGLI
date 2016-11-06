@@ -1,3 +1,11 @@
+Pour utiliser la base de données il suffit d'installer MySQL et de se connecter avec le nom d'utilisateur: root
+et le mot de passe: root
+
+
+
+
+
+
 # projetTAA
 
 This application was generated using JHipster 3.9.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.9.1](https://jhipster.github.io/documentation-archive/v3.9.1).
